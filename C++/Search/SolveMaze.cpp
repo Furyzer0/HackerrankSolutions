@@ -25,6 +25,8 @@ int main() {
     return 0;
 }
 
+/*Find starting point and pass it to solveMaze method       
+*/
 void countLuck(vector <string> matrix, int length) {
     int k;
     cin >> k;
@@ -39,16 +41,13 @@ void countLuck(vector <string> matrix, int length) {
             }
         }
     }
-    //cout << startx << ", " << starty << ", " << endx << ", " << endy << ", " << endl;
     solveMaze(matrix, length, k, startx, starty, 0);
     return;
 }
-
-bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int count){
+/* Find the solution using DFS and check every point has more than two to count how many times want is used
+*/
+bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int count){          
     if(matrix[y][x] == '*'){
-        for(int i = 0; i < length; i++){
-            cout << matrix[i] << endl;
-        }      
         if(count == k)
             cout << "Impressed";
         else
@@ -81,6 +80,8 @@ bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int coun
     return false;
 }
 
+/* Look for paths are open, if there are more and equal than two paths return true
+*/
 bool using_wand(vector <string> matrix, int length, int x, int y){
     int open_count = 0;
 
