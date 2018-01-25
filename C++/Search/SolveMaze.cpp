@@ -6,8 +6,8 @@
 using namespace std;
 
 void countLuck(vector <string> matrix, int length);
-bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int count);
-bool using_wand(vector <string> matrix, int length, int x, int y);
+bool solveMaze(vector <string>& matrix, int length, int k, int x, int y, int count);
+bool using_wand(vector <string>& matrix, int length, int x, int y);
 
 int main() {
     int t;
@@ -44,14 +44,15 @@ void countLuck(vector <string> matrix, int length) {
     solveMaze(matrix, length, k, startx, starty, 0);
     return;
 }
-/* Find the solution using DFS and check every point has more than two to count how many times want is used
+/* Find the solution using DFS and check every point has more than two path to count how many times want is used
 */
-bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int count){          
+bool solveMaze(vector <string>& matrix, int length, int k, int x, int y, int count){          
     if(matrix[y][x] == '*'){
         if(count == k)
             cout << "Impressed";
         else
             cout << "Oops!";
+        cout << endl;
         return true;
     }
     if(matrix[y][x] == 'X' || matrix[y][x] == '+'){
@@ -82,7 +83,7 @@ bool solveMaze(vector <string> matrix, int length, int k, int x, int y, int coun
 
 /* Look for paths are open, if there are more and equal than two paths return true
 */
-bool using_wand(vector <string> matrix, int length, int x, int y){
+bool using_wand(vector <string>& matrix, int length, int x, int y){
     int open_count = 0;
 
     if(x != 0){
