@@ -44,7 +44,7 @@ void countLuck(vector <string> matrix, int length) {
     solveMaze(matrix, length, k, startx, starty, 0);
     return;
 }
-/* Find the solution using DFS and check every point has more than two path to count how many times want is used
+/* Find the solution using DFS and check every point has more than two path to count how many times wand is used
 */
 bool solveMaze(vector <string>& matrix, int length, int k, int x, int y, int count){          
     if(matrix[y][x] == '*'){
